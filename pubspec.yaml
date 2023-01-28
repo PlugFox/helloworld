@@ -1,0 +1,40 @@
+name: helloworld
+description: Flutter hello worlds
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  #flutter_localizations:
+  #  sdk: flutter
+  #path: any
+  #path_provider: any
+  #shared_preferences: any
+  google_fonts: any
+  #intl: any
+  meta: any
+  async: any
+  collection: any
+  cupertino_icons: any
+
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  #build: any
+  #build_runner: any
+  #build_test: any
+  #flutter_gen_runner: any
+  #pubspec_generator: any
+  #json_serializable: any
+  #flutter_launcher_icons: any
+  #flutter_native_splash: any
+
+flutter:
+  uses-material-design: true
