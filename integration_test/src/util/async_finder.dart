@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 
 Future<Finder> asyncFinder({
@@ -6,13 +8,15 @@ Future<Finder> asyncFinder({
   Duration limit = const Duration(milliseconds: 15000),
 }) async {
   final stopwatch = Stopwatch()..start();
+  var result = finder();
   try {
-    var result = finder();
     while (stopwatch.elapsed <= limit) {
-      await tester.pumpAndSettle(const Duration(milliseconds: 100));
+      await tester.pumpAndSettle(const Duration(milliseconds: 100)).timeout(limit - stopwatch.elapsed);
       result = finder();
       if (result.evaluate().isNotEmpty) return result;
     }
+    return result;
+  } on TimeoutException {
     return result;
   } on Object {
     rethrow;
